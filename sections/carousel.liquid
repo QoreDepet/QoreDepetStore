@@ -1,18 +1,66 @@
-<div>
+<style>
+    .slider {
+        width: 100%;
+        position: relative;
+        margin: auto
+        overflow: hidden;
+    }
+
+    .slide {
+        display: none
+    }
+
+    .displaySlide {
+        display: block
+    }
+</style>
+    
+<script>
+    const slides = document.querySelectorForAll(".slide")
+    let slideIndex = 0
+    let intervalID = null
+
+    document.addEventListener("DOMContentLoaded",initializeSlider)
+
+    const initializeSlider = () => {
+        slides[slideIndex].classList.add("displaySlide")
+        setInterval(nextSlide,section.settings.slide_interval)
+    }
+
+    const showSlide = () => {
+
+    }
+
+    const prevSlide = () => {
+
+    }
+
+    const nextSlide = () => {
+        
+    }
+</script>
+
+<div class="slider">
     {% for block in section.blocks %}
-        {%if block.settings.carousel_image != blank%}
-            <div>
-                <img src="{{block.settings.carousel_image | img_url: 'master'}}" width="1280px" height="720px">
-            </div>
-        {%endif%}
+        <div class="slide">
+            {%if block.settings.carousel_image != blank%}    
+                <img class="slide" src="{{block.settings.carousel_image | image_url: 'master'}}" alt="carousel_image" height="100%" width="100%">
+            {%endif%}
+        </div>
     {%endfor%}
 </div>
-
 
 {%  schema  %}  
     {
         "name": "Carousel",
-        "settings": [],
+        "settings": [
+            {
+                "type": "number",
+                "label": "Slide Interval (ms)",
+                "id": "slide_interval",
+                "default": 5000
+            }
+        ],
         "blocks": [
             {
                 "name": "attachement",
