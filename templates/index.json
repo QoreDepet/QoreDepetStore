@@ -77,71 +77,9 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "rich_text_xpEm9Y": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_LYrQqH": {
-          "type": "heading",
-          "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
-          }
-        },
-        "text_647GPV": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "button_mzPAhA": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_LYrQqH",
-        "text_647GPV",
-        "button_mzPAhA"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "faq_qTytyW": {
-      "type": "faq",
-      "blocks": {
-        "question_hYDTTt": {
-          "type": "question",
-          "settings": {
-            "question": "How long does it take to arrive?",
-            "answer": "2-3 days"
-          }
-        }
-      },
-      "block_order": [
-        "question_hYDTTt"
-      ],
-      "settings": {
-        "headline": "Frequently Asked Questions"
-      }
     }
   },
   "order": [
-    "featured_product_t6Dkq7",
-    "rich_text_xpEm9Y",
-    "faq_qTytyW"
+    "featured_product_t6Dkq7"
   ]
 }
