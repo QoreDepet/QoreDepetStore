@@ -2,7 +2,7 @@
     {% for block in section.blocks %}
         {%if block.settings.carousel_image != blank%}
             <div>
-                <img src="{{block.settings.carousel_image | img_url: 'master'}}" width="100px" height="100px">
+                <img src="{{block.settings.carousel_image | img_url: 'master'}}" width="1280px" height="720px">
             </div>
         {%endif%}
     {%endfor%}
