@@ -83,11 +83,15 @@
       "blocks": {
         "image_XXxRW8": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "carousel_image": "shopify://shop_images/Untitled_design-removebg-preview.png"
+          }
         },
         "image_CYiRh9": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "carousel_image": "shopify://shop_images/6233406863.jpg"
+          }
         },
         "image_NePqKa": {
           "type": "image",
