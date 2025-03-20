@@ -81,12 +81,24 @@
     "carousel_BQwFMC": {
       "type": "carousel",
       "blocks": {
-        "image_NePqKa": {
+        "image_XXxRW8": {
           "type": "image",
           "settings": {}
+        },
+        "image_CYiRh9": {
+          "type": "image",
+          "settings": {}
+        },
+        "image_NePqKa": {
+          "type": "image",
+          "settings": {
+            "carousel_image": "shopify://shop_images/7988405228.jpg"
+          }
         }
       },
       "block_order": [
+        "image_XXxRW8",
+        "image_CYiRh9",
         "image_NePqKa"
       ],
       "settings": {}
