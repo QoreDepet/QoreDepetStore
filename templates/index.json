@@ -122,6 +122,18 @@
     },
     "faq_qTytyW": {
       "type": "faq",
+      "blocks": {
+        "question_hYDTTt": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take to arrive?",
+            "answer": "2-3 days"
+          }
+        }
+      },
+      "block_order": [
+        "question_hYDTTt"
+      ],
       "settings": {
         "headline": "Frequently Asked Questions"
       }
