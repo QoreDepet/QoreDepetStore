@@ -77,9 +77,23 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "carousel_BQwFMC": {
+      "type": "carousel",
+      "blocks": {
+        "image_NePqKa": {
+          "type": "image",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "image_NePqKa"
+      ],
+      "settings": {}
     }
   },
   "order": [
-    "featured_product_t6Dkq7"
+    "featured_product_t6Dkq7",
+    "carousel_BQwFMC"
   ]
 }
