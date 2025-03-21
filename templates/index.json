@@ -9,75 +9,6 @@
  */
 {
   "sections": {
-    "featured_product_t6Dkq7": {
-      "type": "featured-product",
-      "blocks": {
-        "text_yMtxt8": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_qDbBAa": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_Rqb77U": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_eD3qAy": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_ezxmDP": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_6YGhKr": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_9kwjzt": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_yMtxt8",
-        "title_qDbBAa",
-        "price_Rqb77U",
-        "variant_picker_eD3qAy",
-        "quantity_selector_ezxmDP",
-        "buy_buttons_6YGhKr",
-        "share_9kwjzt"
-      ],
-      "settings": {
-        "product": "",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "carousel_ickCME": {
       "type": "carousel",
       "blocks": {
@@ -111,7 +42,6 @@
     }
   },
   "order": [
-    "featured_product_t6Dkq7",
     "carousel_ickCME"
   ]
 }
