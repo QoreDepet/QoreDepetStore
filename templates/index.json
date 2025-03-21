@@ -90,13 +90,20 @@
         "image_6ywjgW": {
           "type": "image",
           "settings": {
-            "carousel_image": "shopify://shop_images/6233406863.jpg"
+            "carousel_image": "shopify://shop_images/Untitled_design_2.png"
+          }
+        },
+        "image_cRkija": {
+          "type": "image",
+          "settings": {
+            "carousel_image": "shopify://shop_images/Untitled_design_1.png"
           }
         }
       },
       "block_order": [
         "image_9kYtet",
-        "image_6ywjgW"
+        "image_6ywjgW",
+        "image_cRkija"
       ],
       "settings": {
         "slide_interval": 5000
