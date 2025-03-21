@@ -86,10 +86,17 @@
           "settings": {
             "carousel_image": "shopify://shop_images/7988405228.jpg"
           }
+        },
+        "image_6ywjgW": {
+          "type": "image",
+          "settings": {
+            "carousel_image": "shopify://shop_images/6233406863.jpg"
+          }
         }
       },
       "block_order": [
-        "image_9kYtet"
+        "image_9kYtet",
+        "image_6ywjgW"
       ],
       "settings": {
         "slide_interval": 5000
