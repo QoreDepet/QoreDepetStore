@@ -37,7 +37,8 @@
         "image_cRkija"
       ],
       "settings": {
-        "slide_interval": 5000
+        "slide_interval": 5000,
+        "margin_top": 33
       }
     }
   },
