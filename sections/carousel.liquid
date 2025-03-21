@@ -22,6 +22,7 @@
 
   const initializeSlider = () => {
       console.log(slides)
+      console.log( slides[slideIndex])
       slides[slideIndex].classList.add("displaySlide")
       console.log("TEST")
       setInterval(nextSlide,{{section.settings.slide_interval}})
