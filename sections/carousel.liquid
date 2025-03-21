@@ -16,15 +16,14 @@
 </style>
 
 <script>
+  let slides
   let slideIndex = 0
   let intervalID = null
 
   const initializeSlider = () => {
-    const slides = document.querySelectorAll(".slide")
+      slides = document.querySelectorAll(".slide")
       console.log(slides)
-      console.log( slides[slideIndex])
       slides[slideIndex].classList.add("displaySlide")
-      console.log("TEST")
       setInterval(nextSlide,{{section.settings.slide_interval}})
   }
 
@@ -49,7 +48,7 @@
       {% if block.settings.carousel_image != blank %}
         <img
           class="slide"
-          src="{{block.settings.carousel_image | image_url: 'master'}}"
+          src="{{block.settings.carousel_image | img_url: 'master'}}"
           alt="carousel_image"
           height="100%"
           width="100%"
