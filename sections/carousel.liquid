@@ -1,43 +1,46 @@
 <style>
-    .slider {
-        width: 100%;
-        position: relative;
-        margin: auto
-        overflow: hidden;
-    }
+  .slider {
+      width: 100%;
+      position: relative;
+      margin: auto
+      overflow: hidden;
+  }
 
-    .slide {
-        display: none
-    }
+  .slide {
+      display: none
+  }
 
-    .displaySlide {
-        display: block
-    }
+  .displaySlide {
+      display: block
+  }
 </style>
-    
+
 <script>
-    const slides = document.querySelectorAll(".slide")
-    let slideIndex = 0
-    let intervalID = null
+  const slides = document.querySelectorAll(".slide")
+  let slideIndex = 0
+  let intervalID = null
 
-    const initializeSlider = () => {
-        slides[slideIndex].classList.add("displaySlide")
-        setInterval(nextSlide,{{section.settings.slide_interval}})
-    }
+  const initializeSlider = () => {
+      console.log(slides)
+      console.log( slides[slideIndex])
+      slides[slideIndex].classList.add("displaySlide")
+      console.log("TEST")
+      setInterval(nextSlide,{{section.settings.slide_interval}})
+  }
 
-    document.addEventListener("DOMContentLoaded",initializeSlider)
+  document.addEventListener("DOMContentLoaded",initializeSlider)
 
-    const showSlide = () => {
+  const showSlide = () => {
 
-    }
+  }
 
-    const prevSlide = () => {
+  const prevSlide = () => {
 
-    }
+  }
 
-    const nextSlide = () => {
-        
-    }
+  const nextSlide = () => {
+
+  }
 </script>
 
 <div class="slider">
@@ -50,34 +53,34 @@
     {%endfor%}
 </div>
 
-{%  schema  %}  
-    {
-        "name": "Carousel",
-        "settings": [
-            {
-                "type": "number",
-                "label": "Slide Interval (ms)",
-                "id": "slide_interval",
-                "default": 5000
-            }
-        ],
-        "blocks": [
-            {
-                "name": "attachement",
-                "type": "image",
-                "settings": [
-                    {
-                        "type": "image_picker",
-                        "label": "image",
-                        "id": "carousel_image"
-                    }
-                ]
-            }
-        ],
-        "presets": [
-            {
-                "name": "Carousel"
-            }
-        ]
-    }
-{% endschema %} 
+{% schema %}
+{
+    "name": "Carousel",
+    "settings": [
+        {
+            "type": "number",
+            "label": "Slide Interval (ms)",
+            "id": "slide_interval",
+            "default": 5000
+        }
+    ],
+    "blocks": [
+        {
+            "name": "attachement",
+            "type": "image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "label": "image",
+                    "id": "carousel_image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Carousel"
+        }
+    ]
+}
+{% endschema %}
