@@ -16,11 +16,11 @@
 </style>
 
 <script>
-  const slides = document.querySelectorAll(".slide")
   let slideIndex = 0
   let intervalID = null
 
   const initializeSlider = () => {
+    const slides = document.querySelectorAll(".slide")
       console.log(slides)
       console.log( slides[slideIndex])
       slides[slideIndex].classList.add("displaySlide")
