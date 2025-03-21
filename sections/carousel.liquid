@@ -6,12 +6,18 @@
       overflow: hidden;
   }
 
+  .slides {
+      display: flex;
+      justify-content: center;
+  }
+
   .slide {
-      display: none
+      width: 1000px;
+      display: none;
   }
 
   .displaySlide {
-      display: block
+      display: block;
   }
 </style>
 
@@ -43,6 +49,7 @@
 </script>
 
 <div class="slider">
+<<<<<<< HEAD
     <div class="slides">
         {% for block in section.blocks %}
             {%if block.settings.carousel_image != blank%}    
@@ -50,6 +57,21 @@
             {%endif%}
         {%endfor%}
     </div>
+=======
+  <div class="slides">
+    {% for block in section.blocks %}
+      {% if block.settings.carousel_image != blank %}
+        <img
+          class="slide"
+          src="{{block.settings.carousel_image | img_url: 'master'}}"
+          alt="carousel_image"
+          height="100%"
+          width="100%"
+        >
+      {% endif %}
+    {% endfor %}
+  </div>
+>>>>>>> 6b1047179726215fca5e0262d029c917f7aa2136
 </div>
 
 {% schema %}
