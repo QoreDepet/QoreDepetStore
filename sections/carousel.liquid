@@ -45,6 +45,11 @@
       {
         slideIndex = slides.length - 1
       }
+
+      slides.foreach(silde => {
+        slide.classList.remove("displaySlide")
+      })
+      slides[slideIndex].classList.add("displaySlide")
   }
 
   const prevSlide = () => {
