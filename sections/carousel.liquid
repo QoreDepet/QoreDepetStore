@@ -37,8 +37,14 @@
 
   document.addEventListener("DOMContentLoaded",initializeSlider)
 
-  const showSlide = () => {
-
+  const showSlide = (index) => {
+      if (index >= slides.length)
+      {
+        slideIndex = 0
+      } else if (index < 0)
+      {
+        slideIndex = slides.length - 1
+      }
   }
 
   const prevSlide = () => {
@@ -47,7 +53,7 @@
 
   const nextSlide = () => {
       slideIndex++;
-      showSlide();
+      showSlide(slideIndex);
   }
 </script>
 
