@@ -40,9 +40,33 @@
         "slide_interval": 5000,
         "margin_top": 33
       }
+    },
+    "rich_text_YHrWAG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_caTWym": {
+          "type": "heading",
+          "settings": {
+            "heading": "TOP PICKS",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_caTWym"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "carousel_ickCME"
+    "carousel_ickCME",
+    "rich_text_YHrWAG"
   ]
 }
