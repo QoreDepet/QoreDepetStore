@@ -12,6 +12,14 @@
     transform: translateY(-50%);
   }
 
+  .prevButton {
+    left: 0;
+  }
+
+  .nextButton {
+    right: 0;
+  }
+
   .slides {
       display: flex;
       justify-content: center;
@@ -84,8 +92,8 @@
       {% endif %}
     {% endfor %}
   </div>
-  <button onclick="prevSlide()">Prev</button>
-  <button onclick="nextSlide()">Next</button>
+  <button class="prevButton" onclick="prevSlide()">Prev</button>
+  <button class="nextButton" onclick="nextSlide()">Next</button>
 </div>
 
 {% schema %}
