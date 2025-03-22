@@ -53,7 +53,9 @@
   }
 
   const prevSlide = () => {
-
+      clearInterval(intervalID)
+      slideIndex--;
+      showSlide(slideIndex);
   }
 
   const nextSlide = () => {
