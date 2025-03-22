@@ -31,7 +31,7 @@
       if (slides.length > 0)
       {
         slides[slideIndex].classList.add("displaySlide")
-        setInterval(nextSlide,{{section.settings.slide_interval}})
+        intervalID = setInterval(nextSlide,{{section.settings.slide_interval}})
       }
   }
 
