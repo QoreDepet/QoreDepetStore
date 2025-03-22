@@ -28,9 +28,11 @@
 
   const initializeSlider = () => {
       slides = document.querySelectorAll(".slide")
-      console.log(slides)
-      slides[slideIndex].classList.add("displaySlide")
-      setInterval(nextSlide,{{section.settings.slide_interval}})
+      if (slides.length > 0)
+      {
+        slides[slideIndex].classList.add("displaySlide")
+        setInterval(nextSlide,{{section.settings.slide_interval}})
+      }
   }
 
   document.addEventListener("DOMContentLoaded",initializeSlider)
@@ -44,7 +46,7 @@
   }
 
   const nextSlide = () => {
-
+      slideIndex++;
   }
 </script>
 
