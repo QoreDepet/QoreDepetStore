@@ -70,6 +70,8 @@
               class="banner-img"
               src="{{ product.images[section.settings.image_selection_first] | img_url: 'master' }}"
               alt="{{ product.title }}"
+              width="100px"
+              height="100px"
             >
           </div>
           <h2 style="font-size: {{ section.settings.font_size }}px;">{{ product.title | truncate: 20 }}</h2>
