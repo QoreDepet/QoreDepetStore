@@ -55,23 +55,18 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      {% if product.images.size > section.settings.image_selection_first
-        and product.images.size > section.settings.image_selection_hover
-      %}
-        <div
-          class="product-item"
-          data-hover-img="{{ product.images[section.settings.image_selection_hover] | img_url: 'master' }}"
-        >
+      {% assign first_index = section.settings.image_selection_first | plus: 0 %}
+      {% assign hover_index = section.settings.image_selection_hover | plus: 0 %}
+      {% if product.images.size > first_index and product.images.size > hover_index %}
+        <div class="product-item" data-hover-img="{{ product.images[hover_index] | img_url: 'master' }}">
           <div
             class="product-banner"
             style="width: {{ section.settings.image_width }}px; height: {{ section.settings.image_height }}px;"
           >
             <img
               class="banner-img"
-              src="{{ product.images[section.settings.image_selection_first] | img_url: 'master' }}"
+              src="{{ product.images[first_index] | img_url: 'master' }}"
               alt="{{ product.title }}"
-              width="100px"
-              height="100px"
             >
           </div>
           <h2 style="font-size: {{ section.settings.font_size }}px;">{{ product.title | truncate: 20 }}</h2>
