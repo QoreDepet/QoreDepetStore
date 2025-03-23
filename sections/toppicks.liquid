@@ -6,24 +6,6 @@
   "settings": [
     {
       "type": "range",
-      "id": "padding",
-      "label": "Padding",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 10
-    },
-    {
-      "type": "range",
-      "id": "margin",
-      "label": "Margin",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 10
-    },
-    {
-      "type": "range",
       "id": "font_size",
       "label": "Font Size",
       "min": 12,
@@ -60,60 +42,6 @@
       "id": "image_selection_hover",
       "label": "Image Array Index for Hover",
       "default": "1"
-    },
-    {
-      "type": "range",
-      "id": "image_padding_top",
-      "label": "Image Padding Top",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "range",
-      "id": "image_padding_bottom",
-      "label": "Image Padding Bottom",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "range",
-      "id": "image_padding_left",
-      "label": "Image Padding Left",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "range",
-      "id": "image_padding_right",
-      "label": "Image Padding Right",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "range",
-      "id": "text_padding_top",
-      "label": "Text Padding Top",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 5
-    },
-    {
-      "type": "range",
-      "id": "text_padding_bottom",
-      "label": "Text Padding Bottom",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "default": 5
     }
   ],
   "presets": [
@@ -124,7 +52,7 @@
 }
 {% endschema %}
 
-<div class="top-picks" style="padding: {{ section.settings.padding }}px; margin: {{ section.settings.margin }}px;">
+<div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
       <div
@@ -133,19 +61,15 @@
       >
         <div
           class="product-banner"
-          style="width: {{ section.settings.image_width }}px; height: {{ section.settings.image_height }}px; padding: {{ section.settings.image_padding_top }}px {{ section.settings.image_padding_right }}px {{ section.settings.image_padding_bottom }}px {{ section.settings.image_padding_left }}px;"
+          style="width: {{ section.settings.image_width }}px; height: {{ section.settings.image_height }}px;"
         >
           <img
             class="banner-img"
             src="{{ product.images[section.settings.image_selection_first] | img_url: 'master' }}"
             alt="{{ product.title }}"
-            height="500px"
-            width="100px"
           >
         </div>
-        <h2 style="font-size: {{ section.settings.font_size }}px; padding: {{ section.settings.text_padding_top }}px 0 {{ section.settings.text_padding_bottom }}px;">
-          {{ product.title | truncate: 20 }}
-        </h2>
+        <h2 style="font-size: {{ section.settings.font_size }}px;">{{ product.title | truncate: 20 }}</h2>
       </div>
     {% endfor %}
   </div>
