@@ -69,7 +69,7 @@
               alt="{{ product.title }}"
             >
           </div>
-          <h2 style="font-size: {{ section.settings.font_size }}px;">{{ product.title | truncate: 20 }}</h2>
+          <h2 class="product-title" style="font-size: {{ section.settings.font_size }}px;">{{ product.title }}</h2>
         </div>
       {% endif %}
     {% endfor %}
@@ -97,6 +97,7 @@
     text-align: center;
   }
   .product-banner {
+    background: green;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -116,6 +117,13 @@
     background-image: var(--hover-img);
     background-size: cover;
     background-position: center;
+  }
+  .product-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: center;
   }
 </style>
 
