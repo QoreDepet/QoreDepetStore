@@ -32,16 +32,16 @@
       "default": 180
     },
     {
-      "type": "text",
+      "type": "number",
       "id": "image_selection_first",
       "label": "Image Array Index for First Banner",
-      "default": "0"
+      "default": 0
     },
     {
-      "type": "text",
+      "type": "number",
       "id": "image_selection_hover",
       "label": "Image Array Index for Hover",
-      "default": "1"
+      "default": 1
     }
   ],
   "presets": [
@@ -55,22 +55,26 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <div
-        class="product-item"
-        data-hover-img="{{ product.images[section.settings.image_selection_hover] | img_url: 'master' }}"
-      >
+      {% if product.images.size > section.settings.image_selection_first
+        and product.images.size > section.settings.image_selection_hover
+      %}
         <div
-          class="product-banner"
-          style="width: {{ section.settings.image_width }}px; height: {{ section.settings.image_height }}px;"
+          class="product-item"
+          data-hover-img="{{ product.images[section.settings.image_selection_hover] | img_url: 'master' }}"
         >
-          <img
-            class="banner-img"
-            src="{{ product.images[section.settings.image_selection_first] | img_url: 'master' }}"
-            alt="{{ product.title }}"
+          <div
+            class="product-banner"
+            style="width: {{ section.settings.image_width }}px; height: {{ section.settings.image_height }}px;"
           >
+            <img
+              class="banner-img"
+              src="{{ product.images[section.settings.image_selection_first] | img_url: 'master' }}"
+              alt="{{ product.title }}"
+            >
+          </div>
+          <h2 style="font-size: {{ section.settings.font_size }}px;">{{ product.title | truncate: 20 }}</h2>
         </div>
-        <h2 style="font-size: {{ section.settings.font_size }}px;">{{ product.title | truncate: 20 }}</h2>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
