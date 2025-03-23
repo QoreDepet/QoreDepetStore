@@ -15,7 +15,7 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <div class="product-item">
+      <div class="product-item" data-hover-img="{{ product.images[1] | img_url: 'master' }}">
         <div class="product-banner">
           <img class="banner-img" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
         </div>
@@ -63,6 +63,17 @@
     opacity: 0;
   }
   .product-item:hover .product-banner {
-    background: url('{{ product.featured_image | img_url: 'large' }}') no-repeat center center/cover;
+    background-image: var(--hover-img);
+    background-size: cover;
+    background-position: center;
   }
 </style>
+
+<script>
+  document.querySelectorAll('.product-item').forEach(item => {
+    const hoverImg = item.getAttribute('data-hover-img');
+    if (hoverImg) {
+      item.style.setProperty('--hover-img', `url(${hoverImg})`);
+    }
+  });
+</script>
