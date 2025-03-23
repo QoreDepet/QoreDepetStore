@@ -1,15 +1,3 @@
-{% schema %}
-{
-  "name": "Top Picks",
-  "settings": [],
-  "presets": [
-    {
-      "name": "Top Picks"
-    }
-  ]
-}
-{% endschema %}
-
 <div class="top-picks">
   {% for product in collections.top_picks.products %}
     <div class="product-item">
@@ -39,3 +27,15 @@
     border-radius: 5px;
   }
 </style>
+
+{% schema %}
+{
+  "name": "Top Picks",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Top Picks"
+    }
+  ]
+}
+{% endschema %}
