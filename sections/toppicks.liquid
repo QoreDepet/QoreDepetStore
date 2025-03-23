@@ -1,5 +1,5 @@
 <div class="top-picks">
-  {% for product in collections.frontpage.top_picks.products %}
+  {% for product in collections['top-picks'].top_picks.products %}
     <div class="product-item">
       <img width="50px" height="50px" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
       <h2>{{ product.title }}</h2>
