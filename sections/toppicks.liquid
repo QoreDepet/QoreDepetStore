@@ -13,16 +13,12 @@
 {% endschema %}
 
 <div class="top-picks">
-  <div class="product-banner">
-    <img
-      class="banner-img"
-      src="{{ collections['top-picks'].products.first.featured_image | img_url: 'master' }}"
-      alt="{{ collections['top-picks'].products.first.title }}"
-    >
-  </div>
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <div class="product-item" data-hover-img="{{ product.featured_image | img_url: 'master' }}">
+      <div class="product-item">
+        <div class="product-banner">
+          <img class="banner-img" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
+        </div>
         <h2>{{ product.title }}</h2>
       </div>
     {% endfor %}
@@ -35,17 +31,6 @@
     flex-direction: column;
     align-items: center;
   }
-  .product-banner {
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 20px;
-  }
-  .banner-img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: opacity 0.3s ease-in-out;
-  }
   .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -53,22 +38,31 @@
   }
   .product-item {
     width: 200px;
-    height: 200px;
+    height: 250px;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    background: green;
-    color: white;
-    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     border-radius: 8px;
-    transition: background 0.3s ease-in-out;
+    text-align: center;
+  }
+  .product-banner {
+    width: 100%;
+    height: 150px;
+    background: green;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .product-item:hover .banner-img {
+    opacity: 0;
+  }
+  .product-item:hover .product-banner {
+    background: url('{{ product.featured_image | img_url: 'large' }}') no-repeat center center/cover;
   }
 </style>
-
-<script>
-  document.querySelectorAll('.product-item').forEach(item => {
-    item.addEventListener('mouseover', function() {
-      document.querySelector('.banner-img').src = this.getAttribute('data-hover-img');
-    });
-  });
-</script>
