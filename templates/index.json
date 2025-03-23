@@ -78,7 +78,13 @@
     },
     "toppicks_Xemg88": {
       "type": "toppicks",
-      "settings": {}
+      "settings": {
+        "padding": 20,
+        "margin": 10,
+        "font_size": 16,
+        "image_width": 220,
+        "image_height": 180
+      }
     }
   },
   "order": [
