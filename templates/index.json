@@ -82,8 +82,8 @@
         "font_size": 16,
         "image_width": 220,
         "image_height": 180,
-        "image_selection_first": "1",
-        "image_selection_hover": "2"
+        "image_selection_first": 1,
+        "image_selection_hover": 2
       }
     }
   },
