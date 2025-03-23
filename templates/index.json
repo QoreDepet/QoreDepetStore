@@ -79,7 +79,7 @@
     "toppicks_Xemg88": {
       "type": "toppicks",
       "settings": {
-        "font_size": 16,
+        "font_size": 20,
         "image_width": 220,
         "image_height": 180,
         "image_selection_first": 1,
