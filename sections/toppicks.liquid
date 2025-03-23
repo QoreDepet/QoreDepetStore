@@ -1,36 +1,8 @@
-<div class="top-picks">
-  {% for product in collections['top-picks'].products %}
-    <div class="product-item">
-      <img width="50px" height="50px" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.title }}">
-      <h2>{{ product.title }}</h2>
-      <p>{{ product.description }}</p>
-    </div>
-  {% endfor %}
-</div>
-
-<style>
-  .top-picks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .product-item {
-    width: 300px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-  }
-  .product-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-</style>
-
 {% schema %}
 {
   "name": "Top Picks",
+  "tag": "section",
+  "class": "section",
   "settings": [],
   "presets": [
     {
@@ -39,3 +11,64 @@
   ]
 }
 {% endschema %}
+
+<div class="top-picks">
+  <div class="product-banner">
+    <img
+      class="banner-img"
+      src="{{ collections['top-picks'].products.first.featured_image | img_url: 'master' }}"
+      alt="{{ collections['top-picks'].products.first.title }}"
+    >
+  </div>
+  <div class="product-grid">
+    {% for product in collections['top-picks'].products %}
+      <div class="product-item" data-hover-img="{{ product.featured_image | img_url: 'master' }}">
+        <h2>{{ product.title }}</h2>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .top-picks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-banner {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+  .banner-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .product-item {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: green;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.product-item').forEach(item => {
+    item.addEventListener('mouseover', function() {
+      document.querySelector('.banner-img').src = this.getAttribute('data-hover-img');
+    });
+  });
+</script>
