@@ -11,3 +11,33 @@
   ]
 }
 {% endschema %}
+
+<div class="top-picks">
+  {% for product in collections.top_picks.products %}
+    <div class="product-item">
+      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+      <h2>{{ product.title }}</h2>
+      <p>{{ product.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .top-picks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .product-item {
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .product-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+</style>
