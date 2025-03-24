@@ -81,7 +81,7 @@
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
       <img
-        src="{{ product.featured_image | image_url: 'medium' }}"
+        src="{{ product.featured_image  }}"
         width="{{ image_width }}px"
         height="{{ image_height }}px"
         alt="{{ product.title }}"
