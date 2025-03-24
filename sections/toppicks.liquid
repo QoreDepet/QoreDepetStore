@@ -96,7 +96,7 @@
           >
           <div class="product-info">
             <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
-            <div>
+            <div class="price-list">
               <p class="product-price">{{ product.price | money_with_currency }}</p>
               <p class="product-price">{{ product.price | money_with_currency }}</p>
             </div>
@@ -148,6 +148,11 @@
   }
   .product-price {
     font-weight: bold;
+  }
+
+  .price-list {
+    display: flex;
+    justify-content: center;
   }
 </style>
 
