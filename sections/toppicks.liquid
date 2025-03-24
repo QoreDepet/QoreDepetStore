@@ -163,13 +163,13 @@
           if (otherImgElement && otherIndex !== index) {
             otherImgElement.setAttribute('src', products[otherIndex]?.images[0]); // Reset to original
             otherImgElement.style.opacity = "1";
-            otherImgElement.style.transform = "scale(1)";
+            product.style.transform = "scale(1)";
           }
         });
 
         if (products[index] && products[index].images.length > hoverIndex) {
           imgElement.style.opacity = "0";
-          imgElement.style.transform = "scale(1.01)";
+          product.style.transform = "scale(1.01)";
 
           setTimeout(() => {
             let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
