@@ -124,7 +124,7 @@
       let imgElement = product.querySelector('.product-image');
       let originalImg = imgElement.getAttribute('src');
       product.addEventListener('mouseenter', () => {
-        console.log(products[index])
+        console.log(products[index].images[{{section.settings.image_selection_hover}}])
       });
 
       product.addEventListener('mouseleave', () => {
