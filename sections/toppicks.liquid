@@ -122,12 +122,9 @@
     document.querySelectorAll('.product').forEach((product, index) => {
       let imgElement = product.querySelector('.product-image');
       let originalImg = imgElement.getAttribute('src');
-
+      let products = {{collection['top-picks'].products}}
       product.addEventListener('mouseenter', () => {
-          let hoverImg = hoverImages[index % hoverImages.length]; // Select hover image based on index
-          if (hoverImg) {
-              imgElement.setAttribute('src', hoverImg);
-          }
+
       });
 
       product.addEventListener('mouseleave', () => {
