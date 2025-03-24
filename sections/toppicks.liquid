@@ -150,7 +150,7 @@
           imgElement.style.transform = "scale(1.05)";
 
           setTimeout(() => {
-            let randomIndex = Math.floor(Math.random() * products[index].images.length);
+            let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
             imgElement.setAttribute('src', products[index].images[randomIndex]);
             imgElement.style.opacity = "1";
           }, transitionTime);
