@@ -76,23 +76,23 @@
         "padding_bottom": 52
       }
     },
-    "toppicks_Xemg88": {
+    "toppicks_T9NNVj": {
       "type": "toppicks",
       "settings": {
-        "font_size": 20,
-        "image_width": 220,
-        "image_height": 180,
-        "top_picks_margin_bottom": 38,
-        "top_picks_grid_gap": 43,
-        "image_selection_first": 1,
-        "image_selection_hover": 2,
-        "product_name_list": "Item 1,Item 2,Item 3,Item 4, Item 5, Item 6"
+        "font_size": 16,
+        "top_picks_margin_bottom": 10,
+        "top_picks_grid_gap": 2,
+        "image_selection_first": 0,
+        "image_selection_hover": 1,
+        "product_name_list": "Item 1,Item 2,Item 3,Item 4,Item 5,Item 6",
+        "image_width": "50px",
+        "image_height": "50px"
       }
     }
   },
   "order": [
     "carousel_ickCME",
     "rich_text_YHrWAG",
-    "toppicks_Xemg88"
+    "toppicks_T9NNVj"
   ]
 }
