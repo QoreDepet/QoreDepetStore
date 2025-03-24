@@ -93,7 +93,9 @@
           src="{{ product.featured_image | image_url }}"
           alt="{{ product.title }}"
         >
-        <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
+        <div class="product-info">
+          <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -116,10 +118,6 @@
   .product-title {
     font-size: {{section.settings.font_size}}px;
     text-align: center;
-    word-wrap: break-word; /* Break long words */
-    overflow-wrap: break-word; /* Ensure long words break properly */
-    white-space: normal; /* Allow wrapping */
-    max-width: 100%; /* Ensure it doesn't overflow */
     margin-top: 10px;
     color: white;
   }
