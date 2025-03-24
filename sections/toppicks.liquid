@@ -58,12 +58,12 @@
 }
 {% endschema %}
 
-{% assign productNameList = section.settings.my_list | split: ',' %}
+{% assign product_name_list = section.settings.my_list | split: ',' %}
 
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <h1>{{ productNameList[0] }}</h1>
+      <h1>{{ product_name_list[0] }}</h1>
     {% endfor %}
   </div>
 </div>
