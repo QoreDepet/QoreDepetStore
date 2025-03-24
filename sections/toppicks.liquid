@@ -87,11 +87,6 @@
           src="{{ product.featured_image | image_url }}"
           alt="{{ product.title }}"
         >
-        <img
-          class="product-hover-image"
-          src="{{ product.images[1] | image_url }}"
-          alt="{{ product.title }}"
-        >
         <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
       </div>
     {% endfor %}
@@ -120,12 +115,6 @@
   .product-image {
      height: {{ image_height }}px;
      width: {{ image_width }}px;
-  }
-
-  .product-hover-image {
-     height: {{ image_height }}px;
-     width: {{ image_width }}px;
-    display: hidden;
   }
 </style>
 
