@@ -87,17 +87,19 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <div class="product">
-        <img
-          class="product-image"
-          src="{{ product.featured_image | image_url }}"
-          alt="{{ product.title }}"
-        >
-        <div class="product-info">
-          <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
-          <p class="product-title">Price lmfao</p>
+      <a href="{{ product.url }}">
+        <div class="product">
+          <img
+            class="product-image"
+            src="{{ product.featured_image | image_url }}"
+            alt="{{ product.title }}"
+          >
+          <div class="product-info">
+            <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
+            <p class="product-title">{{ product.price | money_with_currency }}</p>
+          </div>
         </div>
-      </div>
+      </a>
     {% endfor %}
   </div>
 </div>
