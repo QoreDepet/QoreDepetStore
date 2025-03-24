@@ -128,8 +128,8 @@
 
 <script>
     let products = {{ collections['top-picks'].products | json }};
-  let hoverIndex = {{ section.settings.image_selection_hover }};
-  let transitionTime = {{ section.settings.product_image_transition }};
+    let hoverIndex = {{ section.settings.image_selection_hover }};
+    let transitionTime = {{ section.settings.product_image_transition }};
 
   document.querySelectorAll('.product').forEach((product, index, allProducts) => {
       let imgElement = product.querySelector('.product-image');
@@ -150,7 +150,8 @@
           imgElement.style.transform = "scale(1.05)";
 
           setTimeout(() => {
-            imgElement.setAttribute('src', products[index].images[hoverIndex]);
+            let randomIndex = Math.floor(Math.random() * products[index].images.length);
+            imgElement.setAttribute('src', products[index].images[randomIndex]);
             imgElement.style.opacity = "1";
           }, transitionTime);
         }
