@@ -98,7 +98,7 @@
             <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
             <div class="price-list">
               <p class="product-cut-price">{{ product.price | money_with_currency }}</p>
-              <p class="product-price">{{ product.price | money_with_currency }}</p>
+              <p class="product-price">{{ product.price_max | money_with_currency }}</p>
             </div>
           </div>
         </div>
