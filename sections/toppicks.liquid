@@ -84,7 +84,7 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <img height="100px" width="100px" src="{{ product.featured_image | image_url: 'large' }}">
+      <img src="{{ product.featured_image | image_url }}" alt="{{ product.title }}">
       <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
     {% endfor %}
   </div>
