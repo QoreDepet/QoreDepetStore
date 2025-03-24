@@ -81,7 +81,7 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      <div>
+      <div class="product">
         <img
           class="product-image"
           src="{{ product.featured_image | image_url }}"
@@ -118,4 +118,10 @@
   }
 </style>
 
-<script></script>
+<script>
+  let productImages = document.querySelectorAll('.product').forEach(product => {
+    let image = product.querySelector('product-image')
+    let imgSrc = product.getAttribute('src')
+
+  })
+</script>
