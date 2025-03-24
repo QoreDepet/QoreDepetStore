@@ -87,7 +87,7 @@
         "product_name_list": "Item 1,Item 2,Item 3,Item 4,Item 5,Item 6",
         "image_width": "300",
         "image_height": "300",
-        "product_image_transition": "240"
+        "product_image_transition": "150"
       }
     }
   },
