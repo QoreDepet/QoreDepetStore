@@ -55,23 +55,7 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      {% assign first_index = section.settings.image_selection_first | plus: 0 %}
-      {% assign hover_index = section.settings.image_selection_hover | plus: 0 %}
-      {% if product.images.size > first_index and product.images.size > hover_index %}
-        <div class="product-item" data-hover-img="{{ product.images[hover_index] | img_url: 'master' }}">
-          <div
-            class="product-banner"
-            style="width: {{ section.settings.image_width }}px; height: {{ section.settings.image_height }}px;"
-          >
-            <img
-              class="banner-img"
-              src="{{ product.images[first_index] | img_url: 'master' }}"
-              alt="{{ product.title }}"
-            >
-          </div>
-          <h2 class="product-title" style="font-size: {{ section.settings.font_size }}px;">{{ product.title }}</h2>
-        </div>
-      {% endif %}
+      <h1>{{ product.name }}</h1>
     {% endfor %}
   </div>
 </div>
@@ -87,43 +71,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     justify-items: center;
-  }
-  .product-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 8px;
-    text-align: center;
-  }
-  .product-banner {
-    background: green;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.3s ease-in-out;
-  }
-  .product-item:hover .banner-img {
-    opacity: 0;
-  }
-  .product-item:hover .product-banner {
-    background-image: var(--hover-img);
-    background-size: cover;
-    background-position: center;
-  }
-  .product-title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    text-align: center;
   }
 </style>
 
