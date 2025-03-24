@@ -1,3 +1,89 @@
+{% schema %}
+{
+  "name": "Top Picks",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "min": 12,
+      "max": 24,
+      "unit": "px",
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "top_picks_margin_bottom",
+      "label": "Margin Bottom (Top Picks)",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "top_picks_grid_gap",
+      "label": "Grid Gap (Top Picks)",
+      "unit": "px",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "number",
+      "id": "image_selection_first",
+      "label": "Image Array Index for First Banner",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "image_selection_hover",
+      "label": "Image Array Index for Hover",
+      "default": 1
+    },
+    {
+      "type": "text",
+      "id": "product_name_list",
+      "label": "Enter Product Names (comma-separated)",
+      "default": "Item 1,Item 2,Item 3"
+    },
+    {
+      "type": "text",
+      "id": "image_width",
+      "label": "Product Image Width",
+      "default": "50px"
+    },
+     {
+      "type": "text",
+      "id": "image_height",
+      "label": "Product Image Height",
+      "default": "50px"
+    },
+     {
+      "type": "text",
+      "id": "product_image_transition",
+      "label": "Product Image Transition (in ms)",
+      "default": "200"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Picks"
+    }
+  ]
+}
+{% endschema %}
+
+{% assign product_names_list = section.settings.product_name_list | split: ',' %}
+{% assign image_height = section.settings.image_height %}
+{% assign image_width = section.settings.image_width %}
+{% assign default_banner_index = section.settings.image_selection_first %}
+
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
@@ -59,3 +145,46 @@
     font-weight: bold;
   }
 </style>
+
+<script>
+    let products = {{ collections['top-picks'].products | json }};
+    let hoverIndex = {{ section.settings.image_selection_hover }};
+    let transitionTime = {{ section.settings.product_image_transition }};
+
+  document.querySelectorAll('.product').forEach((product, index, allProducts) => {
+      let imgElement = product.querySelector('.product-image');
+      let originalImg = imgElement.getAttribute('src');
+
+      product.addEventListener('mouseenter', () => {
+        allProducts.forEach((otherProduct, otherIndex) => {
+          let otherImgElement = otherProduct.querySelector('.product-image');
+          if (otherImgElement && otherIndex !== index) {
+            otherImgElement.setAttribute('src', products[otherIndex]?.images[0]); // Reset to original
+            otherImgElement.style.opacity = "1";
+            otherImgElement.style.transform = "scale(1)";
+          }
+        });
+
+        if (products[index] && products[index].images.length > hoverIndex) {
+          imgElement.style.opacity = "0";
+          imgElement.style.transform = "scale(1.01)";
+
+          setTimeout(() => {
+            let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
+            imgElement.setAttribute('src', products[index].images[randomIndex]);
+            imgElement.style.opacity = "1";
+          }, transitionTime);
+        }
+      });
+
+      product.addEventListener('mouseleave', () => {
+          imgElement.style.opacity = "0";
+          imgElement.style.transform = "scale(1)";
+
+          setTimeout(() => {
+            imgElement.setAttribute('src', originalImg);
+            imgElement.style.opacity = "1";
+          }, 100);
+      });
+  });
+</script>
