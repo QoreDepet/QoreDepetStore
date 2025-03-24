@@ -136,7 +136,6 @@
       let originalImg = imgElement.getAttribute('src');
 
       product.addEventListener('mouseenter', () => {
-        // Reset all other images before applying hover effect
         allProducts.forEach((otherProduct, otherIndex) => {
           let otherImgElement = otherProduct.querySelector('.product-image');
           if (otherImgElement && otherIndex !== index) {
@@ -146,25 +145,24 @@
           }
         });
 
-        // Apply hover effect to the current image
         if (products[index] && products[index].images.length > hoverIndex) {
-          imgElement.style.opacity = "0"; // Fade out
-          imgElement.style.transform = "scale(1.12)"; // Increase size
+          imgElement.style.opacity = "0";
+          imgElement.style.transform = "scale(1.12)";
 
           setTimeout(() => {
             imgElement.setAttribute('src', products[index].images[hoverIndex]);
-            imgElement.style.opacity = "1"; // Fade in
+            imgElement.style.opacity = "1";
           }, transitionTime);
         }
       });
 
       product.addEventListener('mouseleave', () => {
-          imgElement.style.opacity = "0"; // Fade out
-          imgElement.style.transform = "scale(1)"; // Reset size
+          imgElement.style.opacity = "0";
+          imgElement.style.transform = "scale(1)";
 
           setTimeout(() => {
             imgElement.setAttribute('src', originalImg);
-            imgElement.style.opacity = "1"; // Fade in
+            imgElement.style.opacity = "1";
           }, 100);
       });
   });
