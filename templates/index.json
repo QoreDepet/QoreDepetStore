@@ -80,7 +80,7 @@
       "type": "toppicks",
       "settings": {
         "font_size": 16,
-        "top_picks_margin_bottom": 10,
+        "top_picks_margin_bottom": 40,
         "top_picks_grid_gap": 29,
         "image_selection_first": 0,
         "image_selection_hover": 1,
