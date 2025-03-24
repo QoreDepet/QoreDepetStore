@@ -124,11 +124,11 @@
       let imgElement = product.querySelector('.product-image');
       let originalImg = imgElement.getAttribute('src');
       product.addEventListener('mouseenter', () => {
-        console.log(products[index].images[{{section.settings.image_selection_hover}}])
+        imgElement.setAttribute('src',products[index].images[{{section.settings.image_selection_hover}}])
       });
 
       product.addEventListener('mouseleave', () => {
-          imgElement.setAttribute('src', originalImg); // Revert back to original image
+        imgElement.setAttribute('src', originalImg); // Revert back to original image
       });
   });
 </script>
