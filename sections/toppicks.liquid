@@ -82,8 +82,8 @@
     {% for product in collections['top-picks'].products %}
       <img
         src="{{ product.featured_image | image_url }}"
-        width="{{ image_width }}"
-        height="{{ image_height }}"
+        width="{{ image_width }}px"
+        height="{{ image_height }}px"
         alt="{{ product.title }}"
       >
       <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
