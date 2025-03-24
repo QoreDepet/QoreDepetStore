@@ -76,6 +76,7 @@
 {% assign product_names_list = section.settings.product_name_list | split: ',' %}
 {% assign image_height = section.settings.image_height %}
 {% assign image_width = section.settings.image_width %}
+{% assign default_banner_index = section.settings.image_selection_first %}
 
 <div class="top-picks">
   <div class="product-grid">
@@ -83,7 +84,7 @@
       <div>
         <img
           class="product-image"
-          src="{{ product.images[2]  | image_url }}"
+          src="{{ product.images[default_banner_index]  | image_url }}"
           alt="{{ product.title }}"
         >
         <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
