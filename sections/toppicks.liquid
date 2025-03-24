@@ -119,7 +119,7 @@
 </style>
 
 <script>
-    let products = {{collections['top-picks'].products}}
+    let products = {{collections['top-picks'].products | json}}
     document.querySelectorAll('.product').forEach((product, index) => {
       let imgElement = product.querySelector('.product-image');
       let originalImg = imgElement.getAttribute('src');
