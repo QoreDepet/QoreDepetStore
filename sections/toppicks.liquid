@@ -124,7 +124,7 @@
       let originalImg = imgElement.getAttribute('src');
       let products = {{collection['top-picks'].products}}
       product.addEventListener('mouseenter', () => {
-
+        console.log(products[index].title)
       });
 
       product.addEventListener('mouseleave', () => {
