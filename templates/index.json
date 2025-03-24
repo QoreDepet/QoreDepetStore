@@ -81,7 +81,7 @@
       "settings": {
         "font_size": 16,
         "top_picks_margin_bottom": 10,
-        "top_picks_grid_gap": 2,
+        "top_picks_grid_gap": 29,
         "image_selection_first": 0,
         "image_selection_hover": 1,
         "product_name_list": "Item 1,Item 2,Item 3,Item 4,Item 5,Item 6",
