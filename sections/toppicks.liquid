@@ -128,31 +128,43 @@
 
 <script>
     let products = {{ collections['top-picks'].products | json }};
-    let hoverIndex = {{ section.settings.image_selection_hover }}; // Get hover image index
+  let hoverIndex = {{ section.settings.image_selection_hover }};
+  let transitionTime = {{ section.settings.product_image_transition }};
 
-  document.querySelectorAll('.product').forEach((product, index) => {
+  document.querySelectorAll('.product').forEach((product, index, allProducts) => {
       let imgElement = product.querySelector('.product-image');
       let originalImg = imgElement.getAttribute('src');
 
       product.addEventListener('mouseenter', () => {
+        // Reset all other images before applying hover effect
+        allProducts.forEach((otherProduct, otherIndex) => {
+          let otherImgElement = otherProduct.querySelector('.product-image');
+          if (otherImgElement && otherIndex !== index) {
+            otherImgElement.setAttribute('src', products[otherIndex]?.images[0]); // Reset to original
+            otherImgElement.style.opacity = "1";
+            otherImgElement.style.transform = "scale(1)";
+          }
+        });
+
+        // Apply hover effect to the current image
         if (products[index] && products[index].images.length > hoverIndex) {
           imgElement.style.opacity = "0"; // Fade out
+          imgElement.style.transform = "scale(1.12)"; // Increase size
 
           setTimeout(() => {
             imgElement.setAttribute('src', products[index].images[hoverIndex]);
-            imgElement.style.opacity = "1";
-            imgElement.style.transform = "scale(1.14)"
-          }, {{section.settings.product_image_transition}});
+            imgElement.style.opacity = "1"; // Fade in
+          }, transitionTime);
         }
       });
 
       product.addEventListener('mouseleave', () => {
           imgElement.style.opacity = "0"; // Fade out
+          imgElement.style.transform = "scale(1)"; // Reset size
 
           setTimeout(() => {
             imgElement.setAttribute('src', originalImg);
-            imgElement.style.opacity = "1";
-            imgElement.style.transform = "scale(1)"
+            imgElement.style.opacity = "1"; // Fade in
           }, 100);
       });
   });
