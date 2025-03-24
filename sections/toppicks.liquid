@@ -81,9 +81,8 @@
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
       <img
+        class="product-image"
         src="{{ product.featured_image  | image_url }}"
-        height="{{ image_height }}px"
-        width="{{ image_width }}px"
         alt="{{ product.title }}"
       >
       <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
@@ -107,6 +106,11 @@
 
   .product-title {
     font-size: {{section.settings.font_size}}px;
+  }
+
+  .product-image {
+     height="{{ image_height }}px"
+     width="{{ image_width }}px"
   }
 </style>
 
