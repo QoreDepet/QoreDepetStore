@@ -23,7 +23,9 @@
       </form>
       <div class="icons-parent">
         {% for block in section.blocks %}
-          <img class="icon" src="{{ block.settings.icon_image | image_url }}" alt="Icon" height="100px" width="100px">
+          <a href="">
+            <img class="icon" src="{{ block.settings.icon_image | image_url }}" alt="Icon" height="100px" width="100px">
+          </a>
         {% endfor %}
       </div>
     </div>
@@ -152,6 +154,11 @@
                     "type": "image_picker",
                     "label": "image",
                     "id": "icon_image"
+                },
+                {
+                  "type": "text",
+                  "id": "icon_link",
+                  "label": "Icon Link",
                 }
             ]
         }
