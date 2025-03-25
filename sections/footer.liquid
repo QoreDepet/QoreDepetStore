@@ -23,7 +23,7 @@
       </form>
       <div class="icons-parent">
         {% for block in section.blocks %}
-          <a href="">
+          <a href="{{ block.settings.icon_link}}">
             <img class="icon" src="{{ block.settings.icon_image | image_url }}" alt="Icon" height="100px" width="100px">
           </a>
         {% endfor %}
