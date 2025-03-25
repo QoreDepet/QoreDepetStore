@@ -21,9 +21,11 @@
         <input class="input" type="email" placeholder="Enter your email..." required>
         <button type="submit">SUBSCRIBE</button>
       </form>
-      <fdiv>
-        <img src="{{  }}">
-      </fdiv>
+      <div>
+        {% for block in section.blocks %}
+          <img src="{{ block.settings.icon_image }}" height="100px" width="100px">
+        {% endfor %}
+      </div>
       <div class="social-icons">
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fas fa-times"></i></a>
@@ -32,7 +34,6 @@
     </div>
   </div>
 </footer>
-
 <style>
   .footer {
     background: black;
