@@ -17,19 +17,22 @@
         "image_rfpTXQ": {
           "type": "image",
           "settings": {
-            "icon_image": "shopify://shop_images/instagram_1.png"
+            "icon_image": "shopify://shop_images/instagram_1.png",
+            "icon_link": "https://www"
           }
         },
         "image_DV3NgU": {
           "type": "image",
           "settings": {
-            "icon_image": "shopify://shop_images/facebook.png"
+            "icon_image": "shopify://shop_images/facebook.png",
+            "icon_link": ""
           }
         },
         "image_PkmWW8": {
           "type": "image",
           "settings": {
-            "icon_image": "shopify://shop_images/twitter-alt.png"
+            "icon_image": "shopify://shop_images/twitter-alt.png",
+            "icon_link": ""
           }
         }
       },
