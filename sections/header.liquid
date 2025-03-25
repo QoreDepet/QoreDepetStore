@@ -398,14 +398,12 @@
         requestAnimationFrame(this.reset.bind(this));
       }
 
-          if (scrollTop > 10) {
-            this.header.classList.add('header-shadow');
-          } else {
-            this.header.classList.remove('header-shadow');
-          }
+         
     
-          this.currentScrollTop = scrollTop;
         }
+
+    .header.classList.remove('header-shadow');
+          }
 
       this.currentScrollTop = scrollTop;
     }
