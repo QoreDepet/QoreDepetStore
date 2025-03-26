@@ -18,21 +18,21 @@
           "type": "image",
           "settings": {
             "icon_image": "shopify://shop_images/instagram_1.png",
-            "icon_link": "https://www"
+            "icon_link": "https://www.instagram.com"
           }
         },
         "image_DV3NgU": {
           "type": "image",
           "settings": {
             "icon_image": "shopify://shop_images/facebook.png",
-            "icon_link": ""
+            "icon_link": "https://www.facebook.com"
           }
         },
         "image_PkmWW8": {
           "type": "image",
           "settings": {
             "icon_image": "shopify://shop_images/twitter-alt.png",
-            "icon_link": ""
+            "icon_link": "https://www.x.com"
           }
         }
       },
