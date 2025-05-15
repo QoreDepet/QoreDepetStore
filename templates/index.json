@@ -54,7 +54,7 @@
         "heading_caTWym": {
           "type": "heading",
           "settings": {
-            "heading": "TOP PICKS",
+            "heading": "<strong>TOP PICKS</strong>",
             "heading_size": "h1"
           }
         },
