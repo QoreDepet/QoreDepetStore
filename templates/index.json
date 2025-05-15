@@ -12,29 +12,36 @@
     "carousel_ickCME": {
       "type": "carousel",
       "blocks": {
-        "image_9kYtet": {
+        "image_FAExRw": {
           "type": "image",
           "settings": {
-            "carousel_image": "shopify://shop_images/Untitled_design_3.png"
+            "carousel_image": "shopify://shop_images/20250515_124736_0000.png"
           }
         },
-        "image_6ywjgW": {
+        "image_GrzedJ": {
           "type": "image",
           "settings": {
-            "carousel_image": "shopify://shop_images/Untitled_design_2.png"
+            "carousel_image": "shopify://shop_images/Fashion_Sale_Boho_Homepage_Website_Design_Blog_Banner__20250515_124453_0000.png"
           }
         },
-        "image_cRkija": {
+        "image_MyeML7": {
           "type": "image",
           "settings": {
-            "carousel_image": "shopify://shop_images/Untitled_design_1.png"
+            "carousel_image": "shopify://shop_images/Fashion_Sale_Boho_Homepage_Website_Design_Blog_Banner__20250515_124453_0000.png"
+          }
+        },
+        "image_bFqW3C": {
+          "type": "image",
+          "settings": {
+            "carousel_image": "shopify://shop_images/QORE_DEPET_20250515_125306_0001.png"
           }
         }
       },
       "block_order": [
-        "image_9kYtet",
-        "image_6ywjgW",
-        "image_cRkija"
+        "image_FAExRw",
+        "image_GrzedJ",
+        "image_MyeML7",
+        "image_bFqW3C"
       ],
       "settings": {
         "slide_interval": 5000,
