@@ -18,13 +18,13 @@
             "carousel_image": "shopify://shop_images/20250515_124736_0000.png"
           }
         },
-        "image_GrzedJ": {
+        "image_wiEpUA": {
           "type": "image",
           "settings": {
-            "carousel_image": "shopify://shop_images/Fashion_Sale_Boho_Homepage_Website_Design_Blog_Banner__20250515_124453_0000.png"
+            "carousel_image": "shopify://shop_images/Qoredepet.store_20250515_124651_0000_2.png"
           }
         },
-        "image_MyeML7": {
+        "image_GrzedJ": {
           "type": "image",
           "settings": {
             "carousel_image": "shopify://shop_images/Fashion_Sale_Boho_Homepage_Website_Design_Blog_Banner__20250515_124453_0000.png"
@@ -39,8 +39,8 @@
       },
       "block_order": [
         "image_FAExRw",
+        "image_wiEpUA",
         "image_GrzedJ",
-        "image_MyeML7",
         "image_bFqW3C"
       ],
       "settings": {
