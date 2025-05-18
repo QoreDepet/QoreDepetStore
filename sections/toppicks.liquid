@@ -87,24 +87,8 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
-      {% assign actual_price = product.price | divided_by: 100.0 %}
-      {% assign multiplier = 1.0 %}
-      {% case forloop.index0 | modulo: 5 %}
-        {% when 0 -%}
-          {%- assign multiplier = 1.1 %}
-        {% when 1 -%}
-          {%- assign multiplier = 1.2 %}
-        {% when 2 -%}
-          {%- assign multiplier = 1.3 %}
-        {% when 3 -%}
-          {%- assign multiplier = 1.4 %}
-        {% when 4 -%}
-          {%- assign multiplier = 1.5 %}
-      {% endcase %}
-      {% assign cut_price = actual_price | times: multiplier | round: 2 %}
-
       <a href="{{ product.url }}">
-        <div class="product">
+        <div class="product" data-price="{{ product.price | divided_by: 100.0 }}">
           <img
             class="product-image"
             src="{{ product.featured_image | image_url }}"
@@ -113,8 +97,8 @@
           <div class="product-info">
             <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
             <div class="price-list">
-              <p class="product-cut-price">${{ cut_price }}</p>
-              <p class="product-price">${{ actual_price }}</p>
+              <p class="product-cut-price"></p>
+              <p class="product-price">{{ product.price | money_with_currency }}</p>
             </div>
           </div>
         </div>
@@ -182,6 +166,26 @@
 </style>
 
 <script>
+  const formatINR = (value) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 2
+    }).format(value);
+  };
+
+  document.querySelectorAll('.product').forEach((product) => {
+    const priceElement = product.querySelector('.product-price');
+    const cutPriceElement = product.querySelector('.product-cut-price');
+    const basePrice = parseFloat(product.dataset.price);
+
+    // Generate a random multiplier between 1.1 and 1.5
+    const multiplier = (Math.random() * 0.4) + 1.1;
+    const cutPrice = basePrice * multiplier;
+
+    cutPriceElement.textContent = formatINR(cutPrice);
+  });
+
   let products = {{ collections['top-picks'].products | json }};
   let hoverIndex = {{ section.settings.image_selection_hover }};
   let transitionTime = {{ section.settings.product_image_transition }};
