@@ -56,13 +56,13 @@
       "type": "text",
       "id": "image_width",
       "label": "Product Image Width",
-      "default": "50px"
+      "default": "120px"
     },
     {
       "type": "text",
       "id": "image_height",
       "label": "Product Image Height",
-      "default": "50px"
+      "default": "120px"
     },
     {
       "type": "text",
@@ -82,7 +82,6 @@
 {% assign product_names_list = section.settings.product_name_list | split: ',' %}
 {% assign image_height = section.settings.image_height %}
 {% assign image_width = section.settings.image_width %}
-{% assign default_banner_index = section.settings.image_selection_first %}
 
 <div class="top-picks">
   <div class="product-grid">
@@ -113,14 +112,15 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: {{ section.settings.top_picks_margin_bottom }}px;
-    padding: 10px;
+    padding: 0 15px;
   }
 
   .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: {{ section.settings.top_picks_grid_gap }}px;
-    justify-items: center;
+    width: 100%;
+    max-width: 1200px;
   }
 
   .product {
@@ -152,6 +152,7 @@
     font-size: {{ section.settings.font_size }}px;
     color: black;
     font-weight: bold;
+    margin-bottom: 5px;
   }
 
   .product-price {
@@ -171,19 +172,25 @@
     justify-content: center;
   }
 
-  /* ✅ Responsive changes for mobile only */
+  /* ✅ Mobile responsiveness */
   @media (max-width: 768px) {
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
     .product {
-      max-width: 160px;
+      max-width: 100%;
+      padding: 6px;
     }
 
     .product-image {
       width: 80px;
       height: 80px;
+    }
+
+    .product-info {
+      padding-top: 10px;
+      padding-bottom: 20px;
     }
 
     .product-title {
@@ -192,7 +199,27 @@
 
     .product-price,
     .product-cut-price {
-      font-size: 14px;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .product-image {
+      width: 70px;
+      height: 70px;
+    }
+
+    .product-title {
+      font-size: 13px;
+    }
+
+    .product-price,
+    .product-cut-price {
+      font-size: 12px;
     }
   }
 </style>
@@ -211,7 +238,6 @@
     const cutPriceElement = product.querySelector('.product-cut-price');
     const basePrice = parseFloat(product.dataset.price);
 
-    // Generate a random multiplier between 1.1 and 1.5
     const multiplier = (Math.random() * 0.4) + 1.1;
     const cutPrice = basePrice * multiplier;
 
