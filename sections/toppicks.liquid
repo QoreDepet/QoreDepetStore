@@ -58,13 +58,13 @@
       "label": "Product Image Width",
       "default": "50px"
     },
-     {
+    {
       "type": "text",
       "id": "image_height",
       "label": "Product Image Height",
       "default": "50px"
     },
-     {
+    {
       "type": "text",
       "id": "product_image_transition",
       "label": "Product Image Transition (in ms)",
@@ -87,6 +87,22 @@
 <div class="top-picks">
   <div class="product-grid">
     {% for product in collections['top-picks'].products %}
+      {% assign actual_price = product.price | divided_by: 100.0 %}
+      {% assign multiplier = 1.0 %}
+      {% case forloop.index0 | modulo: 5 %}
+        {% when 0 -%}
+          {%- assign multiplier = 1.1 %}
+        {% when 1 -%}
+          {%- assign multiplier = 1.2 %}
+        {% when 2 -%}
+          {%- assign multiplier = 1.3 %}
+        {% when 3 -%}
+          {%- assign multiplier = 1.4 %}
+        {% when 4 -%}
+          {%- assign multiplier = 1.5 %}
+      {% endcase %}
+      {% assign cut_price = actual_price | times: multiplier | round: 2 %}
+
       <a href="{{ product.url }}">
         <div class="product">
           <img
@@ -97,8 +113,8 @@
           <div class="product-info">
             <p class="product-title">{{ product_names_list[forloop.index0] }}</p>
             <div class="price-list">
-              <p class="product-cut-price">{{ product.price | money_with_currency }}</p>
-              <p class="product-price">{{ product.price | money_with_currency }}</p>
+              <p class="product-cut-price">${{ cut_price }}</p>
+              <p class="product-price">${{ actual_price }}</p>
             </div>
           </div>
         </div>
@@ -166,44 +182,44 @@
 </style>
 
 <script>
-    let products = {{ collections['top-picks'].products | json }};
-    let hoverIndex = {{ section.settings.image_selection_hover }};
-    let transitionTime = {{ section.settings.product_image_transition }};
+  let products = {{ collections['top-picks'].products | json }};
+  let hoverIndex = {{ section.settings.image_selection_hover }};
+  let transitionTime = {{ section.settings.product_image_transition }};
 
   document.querySelectorAll('.product').forEach((product, index, allProducts) => {
-      let imgElement = product.querySelector('.product-image');
-      let originalImg = imgElement.getAttribute('src');
+    let imgElement = product.querySelector('.product-image');
+    let originalImg = imgElement.getAttribute('src');
 
-      product.addEventListener('mouseenter', () => {
-        allProducts.forEach((otherProduct, otherIndex) => {
-          let otherImgElement = otherProduct.querySelector('.product-image');
-          if (otherImgElement && otherIndex !== index) {
-            otherImgElement.setAttribute('src', products[otherIndex]?.images[0]); // Reset to original
-            otherImgElement.style.opacity = "1";
-            product.style.transform = "scale(1)";
-          }
-        });
-
-        if (products[index] && products[index].images.length > hoverIndex) {
-          imgElement.style.opacity = "0";
-          product.style.transform = "scale(1.01)";
-
-          setTimeout(() => {
-            let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
-            imgElement.setAttribute('src', products[index].images[randomIndex]);
-            imgElement.style.opacity = "1";
-          }, transitionTime);
+    product.addEventListener('mouseenter', () => {
+      allProducts.forEach((otherProduct, otherIndex) => {
+        let otherImgElement = otherProduct.querySelector('.product-image');
+        if (otherImgElement && otherIndex !== index) {
+          otherImgElement.setAttribute('src', products[otherIndex]?.images[0]);
+          otherImgElement.style.opacity = "1";
+          product.style.transform = "scale(1)";
         }
       });
 
-      product.addEventListener('mouseleave', () => {
-          imgElement.style.opacity = "0";
-          product.style.transform = "scale(1)";
+      if (products[index] && products[index].images.length > hoverIndex) {
+        imgElement.style.opacity = "0";
+        product.style.transform = "scale(1.01)";
 
-          setTimeout(() => {
-            imgElement.setAttribute('src', originalImg);
-            imgElement.style.opacity = "1";
-          }, 100);
-      });
+        setTimeout(() => {
+          let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
+          imgElement.setAttribute('src', products[index].images[randomIndex]);
+          imgElement.style.opacity = "1";
+        }, transitionTime);
+      }
+    });
+
+    product.addEventListener('mouseleave', () => {
+      imgElement.style.opacity = "0";
+      product.style.transform = "scale(1)";
+
+      setTimeout(() => {
+        imgElement.setAttribute('src', originalImg);
+        imgElement.style.opacity = "1";
+      }, 100);
+    });
   });
 </script>
