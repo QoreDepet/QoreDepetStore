@@ -238,25 +238,39 @@
     }
   }
 
-  /* Small phones */
+  /* Small phones (Mobile S fix) */
   @media (max-width: 480px) {
     .product-grid {
       grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .product {
+      padding: 6px;
     }
 
     .product-image {
-      width: 75px;
-      height: 75px;
+      width: 70px;
+      height: 70px;
     }
 
     .product-title {
-      font-size: 12px;
-      min-height: 30px;
+      font-size: 11px;
+      min-height: 28px;
+      line-height: 1.2;
     }
 
     .product-price,
     .product-cut-price {
-      font-size: 11px;
+      font-size: 10px;
+    }
+
+    .product-info {
+      padding: 6px 4px;
+    }
+
+    .price-list {
+      gap: 4px;
     }
   }
 </style>
