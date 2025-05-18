@@ -171,16 +171,28 @@
     justify-content: center;
   }
 
-  /* ✅ Mobile responsiveness only */
+  /* ✅ Responsive changes for mobile only */
   @media (max-width: 768px) {
     .product-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  @media (max-width: 480px) {
-    .product-grid {
-      grid-template-columns: 1fr;
+    .product {
+      max-width: 160px;
+    }
+
+    .product-image {
+      width: 80px;
+      height: 80px;
+    }
+
+    .product-title {
+      font-size: 14px;
+    }
+
+    .product-price,
+    .product-cut-price {
+      font-size: 14px;
     }
   }
 </style>
