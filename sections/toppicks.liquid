@@ -166,44 +166,61 @@
 </style>
 
 <script>
-    let products = {{ collections['top-picks'].products | json }};
-    let hoverIndex = {{ section.settings.image_selection_hover }};
-    let transitionTime = {{ section.settings.product_image_transition }};
+  let products = {{ collections['top-picks'].products | json }};
+  let hoverIndex = {{ section.settings.image_selection_hover }};
+  let transitionTime = {{ section.settings.product_image_transition }};
 
   document.querySelectorAll('.product').forEach((product, index, allProducts) => {
-      let imgElement = product.querySelector('.product-image');
-      let originalImg = imgElement.getAttribute('src');
+    let imgElement = product.querySelector('.product-image');
+    let originalImg = imgElement.getAttribute('src');
 
-      product.addEventListener('mouseenter', () => {
-        allProducts.forEach((otherProduct, otherIndex) => {
-          let otherImgElement = otherProduct.querySelector('.product-image');
-          if (otherImgElement && otherIndex !== index) {
-            otherImgElement.setAttribute('src', products[otherIndex]?.images[0]); // Reset to original
-            otherImgElement.style.opacity = "1";
-            product.style.transform = "scale(1)";
-          }
-        });
+    // --- Random Cut Price Logic ---
+    let productData = products[index];
+    if (productData && productData.price) {
+      let actualPrice = productData.price / 100; // Shopify price is in cents
+      let multiplier = Math.random() * (1.5 - 1.1) + 1.1;
+      let cutPrice = (actualPrice * multiplier).toFixed(2);
 
-        if (products[index] && products[index].images.length > hoverIndex) {
-          imgElement.style.opacity = "0";
-          product.style.transform = "scale(1.01)";
+      let priceList = product.querySelector('.price-list');
+      if (priceList) {
+        priceList.innerHTML = `
+          <p class="product-cut-price">$${cutPrice}</p>
+          <p class="product-price">$${actualPrice.toFixed(2)}</p>
+        `;
+      }
+    }
 
-          setTimeout(() => {
-            let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
-            imgElement.setAttribute('src', products[index].images[randomIndex]);
-            imgElement.style.opacity = "1";
-          }, transitionTime);
+    // --- Hover Image Logic ---
+    product.addEventListener('mouseenter', () => {
+      allProducts.forEach((otherProduct, otherIndex) => {
+        let otherImgElement = otherProduct.querySelector('.product-image');
+        if (otherImgElement && otherIndex !== index) {
+          otherImgElement.setAttribute('src', products[otherIndex]?.images[0]);
+          otherImgElement.style.opacity = "1";
+          product.style.transform = "scale(1)";
         }
       });
 
-      product.addEventListener('mouseleave', () => {
-          imgElement.style.opacity = "0";
-          product.style.transform = "scale(1)";
+      if (products[index] && products[index].images.length > hoverIndex) {
+        imgElement.style.opacity = "0";
+        product.style.transform = "scale(1.01)";
 
-          setTimeout(() => {
-            imgElement.setAttribute('src', originalImg);
-            imgElement.style.opacity = "1";
-          }, 100);
-      });
+        setTimeout(() => {
+          let randomIndex = Math.floor(Math.random() * (products[index].images.length - 1)) + 1;
+          imgElement.setAttribute('src', products[index].images[randomIndex]);
+          imgElement.style.opacity = "1";
+        }, transitionTime);
+      }
+    });
+
+    product.addEventListener('mouseleave', () => {
+      imgElement.style.opacity = "0";
+      product.style.transform = "scale(1)";
+
+      setTimeout(() => {
+        imgElement.setAttribute('src', originalImg);
+        imgElement.style.opacity = "1";
+      }, 100);
+    });
   });
 </script>
