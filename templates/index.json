@@ -18,30 +18,16 @@
             "carousel_image": "shopify://shop_images/20250515_124736_0000.png"
           }
         },
-        "image_wiEpUA": {
-          "type": "image",
-          "settings": {
-            "carousel_image": "shopify://shop_images/Qoredepet.store_20250515_124651_0000_2.png"
-          }
-        },
         "image_xVKaQq": {
           "type": "image",
           "settings": {
             "carousel_image": "shopify://shop_images/20250515_124852_0000_84ecc611-2bf7-4c2a-a639-a9991bf7bf3c.png"
           }
-        },
-        "image_bFqW3C": {
-          "type": "image",
-          "settings": {
-            "carousel_image": "shopify://shop_images/QORE_DEPET_20250515_125306_0001.png"
-          }
         }
       },
       "block_order": [
         "image_FAExRw",
-        "image_wiEpUA",
-        "image_xVKaQq",
-        "image_bFqW3C"
+        "image_xVKaQq"
       ],
       "settings": {
         "slide_interval": 3000,
